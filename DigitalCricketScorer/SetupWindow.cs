@@ -122,7 +122,19 @@ namespace DigitalCricketScorer
         private void findMatchButton_Click(object sender, EventArgs e)
         {
             DataTable matchData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Match WHERE MatchDay == " + findMatchCalendar.SelectionStart.Date.ToShortDateString());
-            if (matchData == null) MessageBox.Show("No match found!", "Match Finding", MessageBoxButtons.OK, MessageBoxIcon.Exclamation); return;
+            if (matchData == null)
+            {
+                MessageBox.Show("No match found!", "Match Finding", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            DataRow row = matchData.Rows[0];
+            bool homebattingfirst = false;
+            if ((bool)row[10] && (bool)row[11] || !(bool)row[10] && !(bool)row[11]) homebattingfirst = true;
+            else homebattingfirst = false;
+            Match viewingMatch = new Match((int)row[2], (int)row[3], (DateTime)row[1], (bool)row[10], homebattingfirst);
+
+            new MatchWindow(viewingMatch).Show();
             //TODO convert from datatable into match class and open match info window
         }
 

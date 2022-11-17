@@ -1,6 +1,8 @@
-﻿namespace DigitalCricketScorer
+﻿using System.Windows.Forms;
+
+namespace DigitalCricketScorer
 {
-    partial class SetupWindow
+    partial class SetupWindow : Form
     {
         /// <summary>
         /// Required designer variable.

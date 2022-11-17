@@ -29,7 +29,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>x86</PlatformTarget>
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -37,6 +37,7 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -90,7 +91,9 @@
     <Compile Include="SelectPlayerWindow.Designer.cs">
       <DependentUpon>SelectPlayerWindow.cs</DependentUpon>
     </Compile>
-    <Compile Include="SetupWindow.cs" />
+    <Compile Include="SetupWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="SetupWindow.Designer.cs">
       <DependentUpon>SetupWindow.cs</DependentUpon>
     </Compile>

@@ -14,16 +14,21 @@ namespace DigitalCricketScorer
     {
         public Match matchToShow;
         private Dictionary<int, MatchPlayer> matchPlayers = new Dictionary<int, MatchPlayer>();
+        private bool endOfMatch;
 
-        public MatchWindow(Match match)
+        public MatchWindow(Match match, bool _endOfMatch)
         {
             InitializeComponent();
             matchToShow = match;
+            endOfMatch = _endOfMatch;
             this.FormClosed += new FormClosedEventHandler(WindowClosed);
         }
         private void WindowClosed(object sender, FormClosedEventArgs e)
         {
-            Application.Exit();
+            if (endOfMatch)
+            {
+                Application.Exit();
+            }
         }
 
         private void MatchWindow_Load(object sender, EventArgs e)
@@ -33,11 +38,11 @@ namespace DigitalCricketScorer
             awayTeamScoreLabel.Text = matchToShow.awayTeam.name + " - " + matchToShow.awayMatchTeam.runCount + "/" + matchToShow.awayMatchTeam.wicketCount;
             if (matchToShow.homeBattingFirst && matchToShow.tossWonByHome || !matchToShow.homeBattingFirst && !matchToShow.tossWonByHome)
             {
-                tossOutcomelabel.Text = matchToShow.tossWonByHome ? matchToShow.homeTeam.name + " won the toss and chose to Bat" : matchToShow.awayTeam.name + " won the toss and chose to Bat";
+                tossOutcomelabel.Text = matchToShow.tossWonByHome ? matchToShow.homeTeam.name + " won the toss and chose to bat" : matchToShow.awayTeam.name + " won the toss and chose to bat";
             }
             else
             {
-                tossOutcomelabel.Text = matchToShow.tossWonByHome ? matchToShow.homeTeam.name + " won the toss and chose to Bowl" : matchToShow.awayTeam.name + " won the toss and chose to Bowl";
+                tossOutcomelabel.Text = matchToShow.tossWonByHome ? matchToShow.homeTeam.name + " won the toss and chose to bowl" : matchToShow.awayTeam.name + " won the toss and chose to bowl";
             }
             homeTeamPlayerList.DataSource = matchToShow.homeTeam.players;
             awayTeamPlayerList.DataSource = matchToShow.awayTeam.players;
@@ -145,6 +150,18 @@ namespace DigitalCricketScorer
 
       
             return displayList;
+        }
+
+        private void awayTeamPlayerList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataTable playerData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Player WHERE PlayerID = " + awayTeamPlayerList.Rows[e.RowIndex].Cells[0].Value);
+            new PlayerWindow(playerData).Show();
+        }
+
+        private void homeTeamPlayerList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataTable playerData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Player WHERE PlayerID = " + homeTeamPlayerList.Rows[e.RowIndex].Cells[0].Value);
+            new PlayerWindow(playerData).Show();
         }
     }
 }

@@ -28,18 +28,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle49 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle50 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle51 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle52 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle53 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle54 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle55 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle56 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle57 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle58 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle59 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle60 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
             this.wideBallButton = new System.Windows.Forms.Button();
             this.noBallButton = new System.Windows.Forms.Button();
             this.byeBallButton = new System.Windows.Forms.Button();
@@ -67,15 +67,13 @@
             this.extr = new System.Windows.Forms.Label();
             this.extrasLabel = new System.Windows.Forms.Label();
             this.winPredictLabel = new System.Windows.Forms.Label();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
-            this.homePercentage = new System.Windows.Forms.Label();
-            this.awayPercentage = new System.Windows.Forms.Label();
-            this.homeTeamProgressLabel = new System.Windows.Forms.Label();
-            this.awayTeamProgressLabel = new System.Windows.Forms.Label();
+            this.winPredictorResultLabel = new System.Windows.Forms.Label();
+            this.winPredictorPanel = new System.Windows.Forms.Panel();
             ((System.ComponentModel.ISupportInitialize)(this.batsmanDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.bowlerDataGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facingBatsmenGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.facingBowlerGrid)).BeginInit();
+            this.winPredictorPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // wideBallButton
@@ -304,14 +302,14 @@
             this.batsmanDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.batsmanDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.batsmanDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle49.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle49.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle49.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle49.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle49.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle49.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle49.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.batsmanDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle49;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.batsmanDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.batsmanDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.batsmanDataGrid.Enabled = false;
             this.batsmanDataGrid.EnableHeadersVisualStyles = false;
@@ -322,21 +320,21 @@
             this.batsmanDataGrid.Name = "batsmanDataGrid";
             this.batsmanDataGrid.ReadOnly = true;
             this.batsmanDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle50.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle50.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle50.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle50.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle50.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle50.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle50.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.batsmanDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle50;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.batsmanDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.batsmanDataGrid.RowHeadersVisible = false;
             this.batsmanDataGrid.RowHeadersWidth = 30;
             this.batsmanDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle51.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle51.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle51.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.batsmanDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle51;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.batsmanDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.batsmanDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.batsmanDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.batsmanDataGrid.Size = new System.Drawing.Size(515, 270);
@@ -353,14 +351,14 @@
             this.bowlerDataGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.bowlerDataGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.bowlerDataGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle52.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle52.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle52.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle52.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle52.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle52.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle52.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bowlerDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle52;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bowlerDataGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.bowlerDataGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.bowlerDataGrid.Enabled = false;
             this.bowlerDataGrid.EnableHeadersVisualStyles = false;
@@ -370,21 +368,21 @@
             this.bowlerDataGrid.Name = "bowlerDataGrid";
             this.bowlerDataGrid.ReadOnly = true;
             this.bowlerDataGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle53.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle53.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle53.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle53.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle53.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle53.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle53.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.bowlerDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle53;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.bowlerDataGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.bowlerDataGrid.RowHeadersVisible = false;
             this.bowlerDataGrid.RowHeadersWidth = 30;
             this.bowlerDataGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle54.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle54.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle54.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bowlerDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle54;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bowlerDataGrid.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.bowlerDataGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.bowlerDataGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.bowlerDataGrid.Size = new System.Drawing.Size(515, 270);
@@ -421,14 +419,14 @@
             this.facingBatsmenGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.facingBatsmenGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.facingBatsmenGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle55.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle55.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle55.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle55.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle55.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle55.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle55.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.facingBatsmenGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle55;
+            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.facingBatsmenGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
             this.facingBatsmenGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.facingBatsmenGrid.Enabled = false;
             this.facingBatsmenGrid.EnableHeadersVisualStyles = false;
@@ -439,21 +437,21 @@
             this.facingBatsmenGrid.Name = "facingBatsmenGrid";
             this.facingBatsmenGrid.ReadOnly = true;
             this.facingBatsmenGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle56.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle56.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle56.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle56.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle56.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle56.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle56.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.facingBatsmenGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle56;
+            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.facingBatsmenGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
             this.facingBatsmenGrid.RowHeadersVisible = false;
             this.facingBatsmenGrid.RowHeadersWidth = 30;
             this.facingBatsmenGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle57.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle57.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle57.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.facingBatsmenGrid.RowsDefaultCellStyle = dataGridViewCellStyle57;
+            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.facingBatsmenGrid.RowsDefaultCellStyle = dataGridViewCellStyle9;
             this.facingBatsmenGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.facingBatsmenGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.facingBatsmenGrid.Size = new System.Drawing.Size(515, 94);
@@ -471,14 +469,14 @@
             this.facingBowlerGrid.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.facingBowlerGrid.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.facingBowlerGrid.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle58.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle58.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle58.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle58.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle58.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle58.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle58.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.facingBowlerGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle58;
+            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.facingBowlerGrid.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
             this.facingBowlerGrid.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.facingBowlerGrid.Enabled = false;
             this.facingBowlerGrid.EnableHeadersVisualStyles = false;
@@ -489,21 +487,21 @@
             this.facingBowlerGrid.Name = "facingBowlerGrid";
             this.facingBowlerGrid.ReadOnly = true;
             this.facingBowlerGrid.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle59.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle59.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle59.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle59.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle59.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle59.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle59.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.facingBowlerGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle59;
+            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.facingBowlerGrid.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
             this.facingBowlerGrid.RowHeadersVisible = false;
             this.facingBowlerGrid.RowHeadersWidth = 30;
             this.facingBowlerGrid.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle60.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle60.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle60.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.facingBowlerGrid.RowsDefaultCellStyle = dataGridViewCellStyle60;
+            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.facingBowlerGrid.RowsDefaultCellStyle = dataGridViewCellStyle12;
             this.facingBowlerGrid.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.facingBowlerGrid.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.facingBowlerGrid.Size = new System.Drawing.Size(515, 51);
@@ -577,58 +575,31 @@
             // winPredictLabel
             // 
             this.winPredictLabel.AutoSize = true;
-            this.winPredictLabel.Location = new System.Drawing.Point(338, 13);
+            this.winPredictLabel.Location = new System.Drawing.Point(11, 8);
             this.winPredictLabel.Name = "winPredictLabel";
             this.winPredictLabel.Size = new System.Drawing.Size(97, 19);
             this.winPredictLabel.TabIndex = 26;
             this.winPredictLabel.Text = "Win Predictor";
             // 
-            // progressBar1
+            // winPredictorResultLabel
             // 
-            this.progressBar1.Location = new System.Drawing.Point(342, 36);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(199, 23);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar1.TabIndex = 27;
-            this.progressBar1.Value = 50;
+            this.winPredictorResultLabel.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
+            this.winPredictorResultLabel.Location = new System.Drawing.Point(11, 34);
+            this.winPredictorResultLabel.Name = "winPredictorResultLabel";
+            this.winPredictorResultLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.winPredictorResultLabel.Size = new System.Drawing.Size(279, 19);
+            this.winPredictorResultLabel.TabIndex = 31;
+            this.winPredictorResultLabel.Text = "testy";
+            this.winPredictorResultLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
-            // homePercentage
+            // winPredictorPanel
             // 
-            this.homePercentage.AutoSize = true;
-            this.homePercentage.Location = new System.Drawing.Point(300, 37);
-            this.homePercentage.Name = "homePercentage";
-            this.homePercentage.Size = new System.Drawing.Size(36, 19);
-            this.homePercentage.TabIndex = 28;
-            this.homePercentage.Text = "50%";
-            // 
-            // awayPercentage
-            // 
-            this.awayPercentage.AutoSize = true;
-            this.awayPercentage.Location = new System.Drawing.Point(547, 38);
-            this.awayPercentage.Name = "awayPercentage";
-            this.awayPercentage.Size = new System.Drawing.Size(36, 19);
-            this.awayPercentage.TabIndex = 29;
-            this.awayPercentage.Text = "50%";
-            // 
-            // homeTeamProgressLabel
-            // 
-            this.homeTeamProgressLabel.Location = new System.Drawing.Point(300, 62);
-            this.homeTeamProgressLabel.Name = "homeTeamProgressLabel";
-            this.homeTeamProgressLabel.Size = new System.Drawing.Size(140, 19);
-            this.homeTeamProgressLabel.TabIndex = 30;
-            this.homeTeamProgressLabel.Text = "Happy";
-            // 
-            // awayTeamProgressLabel
-            // 
-            this.awayTeamProgressLabel.Anchor = System.Windows.Forms.AnchorStyles.Right;
-            this.awayTeamProgressLabel.ImageAlign = System.Drawing.ContentAlignment.BottomCenter;
-            this.awayTeamProgressLabel.Location = new System.Drawing.Point(446, 62);
-            this.awayTeamProgressLabel.Name = "awayTeamProgressLabel";
-            this.awayTeamProgressLabel.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.awayTeamProgressLabel.Size = new System.Drawing.Size(140, 19);
-            this.awayTeamProgressLabel.TabIndex = 31;
-            this.awayTeamProgressLabel.Text = "testy";
-            this.awayTeamProgressLabel.TextAlign = System.Drawing.ContentAlignment.TopRight;
+            this.winPredictorPanel.Controls.Add(this.winPredictorResultLabel);
+            this.winPredictorPanel.Controls.Add(this.winPredictLabel);
+            this.winPredictorPanel.Location = new System.Drawing.Point(286, 12);
+            this.winPredictorPanel.Name = "winPredictorPanel";
+            this.winPredictorPanel.Size = new System.Drawing.Size(306, 68);
+            this.winPredictorPanel.TabIndex = 32;
             // 
             // ScorerWindow
             // 
@@ -636,12 +607,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1139, 578);
-            this.Controls.Add(this.awayTeamProgressLabel);
-            this.Controls.Add(this.homeTeamProgressLabel);
-            this.Controls.Add(this.awayPercentage);
-            this.Controls.Add(this.homePercentage);
-            this.Controls.Add(this.progressBar1);
-            this.Controls.Add(this.winPredictLabel);
+            this.Controls.Add(this.winPredictorPanel);
             this.Controls.Add(this.extrasLabel);
             this.Controls.Add(this.extr);
             this.Controls.Add(this.extrasTitleLabel);
@@ -679,6 +645,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.bowlerDataGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facingBatsmenGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.facingBowlerGrid)).EndInit();
+            this.winPredictorPanel.ResumeLayout(false);
+            this.winPredictorPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -713,11 +681,8 @@
         private System.Windows.Forms.Label extr;
         private System.Windows.Forms.Label extrasLabel;
         private System.Windows.Forms.Label winPredictLabel;
-        private System.Windows.Forms.ProgressBar progressBar1;
-        private System.Windows.Forms.Label homePercentage;
-        private System.Windows.Forms.Label awayPercentage;
-        private System.Windows.Forms.Label homeTeamProgressLabel;
-        private System.Windows.Forms.Label awayTeamProgressLabel;
+        private System.Windows.Forms.Label winPredictorResultLabel;
+        private System.Windows.Forms.Panel winPredictorPanel;
     }
 }
 

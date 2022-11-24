@@ -66,8 +66,11 @@ namespace DigitalCricketScorer
                 MessageBox.Show("Please select the toss outcome!", "Match Creation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-
-            // TODO check if date already exists in database
+            if (SQLUtils.ExecuteSQL("SELECT * FROM tbl_Match WHERE MatchDay = #" + matchDateCalendar.SelectionStart.Date.ToString("yyyy/MM/dd") + "#").Rows.Count > 0)
+            {
+                MessageBox.Show("Match date overlap! Please select a new date!", "Match Creation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
             bool hBattingFirst = (tossWonDropDown.SelectedIndex == 0 && tossChoiceDropDown.SelectedIndex == 0) || (tossWonDropDown.SelectedIndex == 1 && tossChoiceDropDown.SelectedIndex == 1);
 
@@ -121,24 +124,62 @@ namespace DigitalCricketScorer
 
         private void findMatchButton_Click(object sender, EventArgs e)
         {
-            DataTable matchData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Match WHERE MatchDay == " + findMatchCalendar.SelectionStart.Date.ToShortDateString());
-            if (matchData == null)
+            DataTable matchData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Match WHERE MatchDay = #" + findMatchCalendar.SelectionStart.Date.ToString("yyyy/MM/dd") + "#");
+            if (matchData.Rows.Count == 0)
             {
                 MessageBox.Show("No match found!", "Match Finding", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
 
+
             DataRow row = matchData.Rows[0];
             bool homebattingfirst = false;
             if ((bool)row[10] && (bool)row[11] || !(bool)row[10] && !(bool)row[11]) homebattingfirst = true;
             else homebattingfirst = false;
-            Match viewingMatch = new Match((int)row[2], (int)row[3], (DateTime)row[1], (bool)row[10], homebattingfirst);
+            Match viewingMatch = new Match((int)row[2], (int)row[6], (DateTime)row[1], (bool)row[10], homebattingfirst)
+            {
+                ballString = row[12].ToString(),
+                homeMatchTeam = new MatchTeam { runCount = (int)row[3], wicketCount = (int)row[4] },
+                awayMatchTeam = new MatchTeam { runCount = (int)row[7], wicketCount = (int)row[8] },
+            };
 
-            new MatchWindow(viewingMatch).Show();
-            //TODO convert from datatable into match class and open match info window
+            new MatchWindow(viewingMatch, false).Show();
         }
 
-        // TODO add tabs for adding new teams and players
-        // TODO add button to open player and match records drawn from database
+        private void playerSearchReturnList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataTable playerData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Player WHERE PlayerID = " + playerSearchReturnList.Rows[e.RowIndex].Cells[0].Value);
+            new PlayerWindow(playerData).Show();
+        }
+
+        private void searchPlayerButton_Click(object sender, EventArgs e)
+        {
+            DataTable playerReturnData = SQLUtils.ExecuteSQL("SELECT PlayerID, FirstName, Surname FROM tbl_Player WHERE FirstName LIKE '%" + playerSearchFirstnameTextbox.Text + "%' AND Surname LIKE '%" + playerSearchSurnameTextbox.Text + "%'");
+            if (playerReturnData.Rows.Count == 0)
+            {
+                MessageBox.Show("No players found!", "Player Finding", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            playerSearchReturnList.DataSource = playerReturnData;
+        }
+
+        private void teamSearchButton_Click(object sender, EventArgs e)
+        {
+            DataTable teamReturnData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Team WHERE Name LIKE '%" + teamSearchNameTextbox.Text + "%'");
+            if (teamReturnData.Rows.Count == 0)
+            {
+                MessageBox.Show("No teams found!", "Team Finding", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
+
+            teamSearchReturnList.DataSource = teamReturnData;
+        }
+
+        private void teamSearchReturnList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataTable teamData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Team WHERE TeamID = " + teamSearchReturnList.Rows[e.RowIndex].Cells[0].Value);
+            new TeamWindow(teamData).Show();
+        }
     }
 }

@@ -59,17 +59,35 @@ namespace DigitalCricketScorer
             this.teamNameTextbox = new System.Windows.Forms.TextBox();
             this.createTeamLabel = new System.Windows.Forms.Label();
             this.findMatchTab = new System.Windows.Forms.TabPage();
-            this.findTeamTab = new System.Windows.Forms.TabPage();
-            this.findPlayerTab = new System.Windows.Forms.TabPage();
+            this.findMatchButton = new System.Windows.Forms.Button();
+            this.findMatchCalendar = new System.Windows.Forms.MonthCalendar();
             this.findMatchDateLabel = new System.Windows.Forms.Label();
             this.findMatchTitle = new System.Windows.Forms.Label();
-            this.findMatchCalendar = new System.Windows.Forms.MonthCalendar();
-            this.findMatchButton = new System.Windows.Forms.Button();
+            this.findTeamTab = new System.Windows.Forms.TabPage();
+            this.findPlayerTab = new System.Windows.Forms.TabPage();
+            this.playerSearchSurnameTextbox = new System.Windows.Forms.TextBox();
+            this.SurnamePlayerLabel = new System.Windows.Forms.Label();
+            this.firstNamePlayerLabel = new System.Windows.Forms.Label();
+            this.playerSearchFirstnameTextbox = new System.Windows.Forms.TextBox();
+            this.FindPlayerTitle = new System.Windows.Forms.Label();
+            this.playerSearchReturnList = new System.Windows.Forms.DataGridView();
+            this.searchPlayerButton = new System.Windows.Forms.Button();
+            this.HintLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
+            this.teamSearchButton = new System.Windows.Forms.Button();
+            this.teamSearchReturnList = new System.Windows.Forms.DataGridView();
+            this.teamSearchLabel = new System.Windows.Forms.Label();
+            this.teamSearchNameTextbox = new System.Windows.Forms.TextBox();
+            this.findTeamTitle = new System.Windows.Forms.Label();
             this.setupWindowTabControl.SuspendLayout();
             this.newMatchTab.SuspendLayout();
             this.addPlayerTab.SuspendLayout();
             this.addTeamTab.SuspendLayout();
             this.findMatchTab.SuspendLayout();
+            this.findTeamTab.SuspendLayout();
+            this.findPlayerTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playerSearchReturnList)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamSearchReturnList)).BeginInit();
             this.SuspendLayout();
             // 
             // homeTeamLabel
@@ -396,25 +414,22 @@ namespace DigitalCricketScorer
             this.findMatchTab.Text = "Find Match";
             this.findMatchTab.UseVisualStyleBackColor = true;
             // 
-            // findTeamTab
+            // findMatchButton
             // 
-            this.findTeamTab.Location = new System.Drawing.Point(4, 28);
-            this.findTeamTab.Name = "findTeamTab";
-            this.findTeamTab.Padding = new System.Windows.Forms.Padding(3);
-            this.findTeamTab.Size = new System.Drawing.Size(711, 451);
-            this.findTeamTab.TabIndex = 4;
-            this.findTeamTab.Text = "Find Team";
-            this.findTeamTab.UseVisualStyleBackColor = true;
+            this.findMatchButton.Location = new System.Drawing.Point(543, 390);
+            this.findMatchButton.Name = "findMatchButton";
+            this.findMatchButton.Size = new System.Drawing.Size(162, 55);
+            this.findMatchButton.TabIndex = 13;
+            this.findMatchButton.Text = "Find match";
+            this.findMatchButton.UseVisualStyleBackColor = true;
+            this.findMatchButton.Click += new System.EventHandler(this.findMatchButton_Click);
             // 
-            // findPlayerTab
+            // findMatchCalendar
             // 
-            this.findPlayerTab.Location = new System.Drawing.Point(4, 28);
-            this.findPlayerTab.Name = "findPlayerTab";
-            this.findPlayerTab.Padding = new System.Windows.Forms.Padding(3);
-            this.findPlayerTab.Size = new System.Drawing.Size(711, 451);
-            this.findPlayerTab.TabIndex = 5;
-            this.findPlayerTab.Text = "Find Player";
-            this.findPlayerTab.UseVisualStyleBackColor = true;
+            this.findMatchCalendar.Location = new System.Drawing.Point(9, 69);
+            this.findMatchCalendar.MaxSelectionCount = 1;
+            this.findMatchCalendar.Name = "findMatchCalendar";
+            this.findMatchCalendar.TabIndex = 12;
             // 
             // findMatchDateLabel
             // 
@@ -436,22 +451,199 @@ namespace DigitalCricketScorer
             this.findMatchTitle.TabIndex = 13;
             this.findMatchTitle.Text = "Find Match";
             // 
-            // findMatchCalendar
+            // findTeamTab
             // 
-            this.findMatchCalendar.Location = new System.Drawing.Point(9, 69);
-            this.findMatchCalendar.MaxSelectionCount = 1;
-            this.findMatchCalendar.Name = "findMatchCalendar";
-            this.findMatchCalendar.TabIndex = 12;
+            this.findTeamTab.Controls.Add(this.label1);
+            this.findTeamTab.Controls.Add(this.teamSearchButton);
+            this.findTeamTab.Controls.Add(this.teamSearchReturnList);
+            this.findTeamTab.Controls.Add(this.teamSearchLabel);
+            this.findTeamTab.Controls.Add(this.teamSearchNameTextbox);
+            this.findTeamTab.Controls.Add(this.findTeamTitle);
+            this.findTeamTab.Location = new System.Drawing.Point(4, 28);
+            this.findTeamTab.Name = "findTeamTab";
+            this.findTeamTab.Padding = new System.Windows.Forms.Padding(3);
+            this.findTeamTab.Size = new System.Drawing.Size(711, 451);
+            this.findTeamTab.TabIndex = 4;
+            this.findTeamTab.Text = "Find Team";
+            this.findTeamTab.UseVisualStyleBackColor = true;
             // 
-            // findMatchButton
+            // findPlayerTab
             // 
-            this.findMatchButton.Location = new System.Drawing.Point(543, 390);
-            this.findMatchButton.Name = "findMatchButton";
-            this.findMatchButton.Size = new System.Drawing.Size(162, 55);
-            this.findMatchButton.TabIndex = 13;
-            this.findMatchButton.Text = "Find match";
-            this.findMatchButton.UseVisualStyleBackColor = true;
-            this.findMatchButton.Click += new System.EventHandler(this.findMatchButton_Click);
+            this.findPlayerTab.Controls.Add(this.HintLabel);
+            this.findPlayerTab.Controls.Add(this.searchPlayerButton);
+            this.findPlayerTab.Controls.Add(this.playerSearchReturnList);
+            this.findPlayerTab.Controls.Add(this.playerSearchSurnameTextbox);
+            this.findPlayerTab.Controls.Add(this.SurnamePlayerLabel);
+            this.findPlayerTab.Controls.Add(this.firstNamePlayerLabel);
+            this.findPlayerTab.Controls.Add(this.playerSearchFirstnameTextbox);
+            this.findPlayerTab.Controls.Add(this.FindPlayerTitle);
+            this.findPlayerTab.Location = new System.Drawing.Point(4, 28);
+            this.findPlayerTab.Name = "findPlayerTab";
+            this.findPlayerTab.Padding = new System.Windows.Forms.Padding(3);
+            this.findPlayerTab.Size = new System.Drawing.Size(711, 451);
+            this.findPlayerTab.TabIndex = 5;
+            this.findPlayerTab.Text = "Find Player";
+            this.findPlayerTab.UseVisualStyleBackColor = true;
+            // 
+            // playerSearchSurnameTextbox
+            // 
+            this.playerSearchSurnameTextbox.Location = new System.Drawing.Point(6, 122);
+            this.playerSearchSurnameTextbox.Name = "playerSearchSurnameTextbox";
+            this.playerSearchSurnameTextbox.Size = new System.Drawing.Size(697, 27);
+            this.playerSearchSurnameTextbox.TabIndex = 10;
+            // 
+            // SurnamePlayerLabel
+            // 
+            this.SurnamePlayerLabel.AutoSize = true;
+            this.SurnamePlayerLabel.Location = new System.Drawing.Point(2, 99);
+            this.SurnamePlayerLabel.Name = "SurnamePlayerLabel";
+            this.SurnamePlayerLabel.Size = new System.Drawing.Size(65, 19);
+            this.SurnamePlayerLabel.TabIndex = 9;
+            this.SurnamePlayerLabel.Text = "Surname";
+            // 
+            // firstNamePlayerLabel
+            // 
+            this.firstNamePlayerLabel.AutoSize = true;
+            this.firstNamePlayerLabel.Location = new System.Drawing.Point(2, 43);
+            this.firstNamePlayerLabel.Name = "firstNamePlayerLabel";
+            this.firstNamePlayerLabel.Size = new System.Drawing.Size(79, 19);
+            this.firstNamePlayerLabel.TabIndex = 8;
+            this.firstNamePlayerLabel.Text = "First Name";
+            // 
+            // playerSearchFirstnameTextbox
+            // 
+            this.playerSearchFirstnameTextbox.Location = new System.Drawing.Point(6, 66);
+            this.playerSearchFirstnameTextbox.Name = "playerSearchFirstnameTextbox";
+            this.playerSearchFirstnameTextbox.Size = new System.Drawing.Size(697, 27);
+            this.playerSearchFirstnameTextbox.TabIndex = 7;
+            // 
+            // FindPlayerTitle
+            // 
+            this.FindPlayerTitle.AutoSize = true;
+            this.FindPlayerTitle.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.FindPlayerTitle.Location = new System.Drawing.Point(5, 8);
+            this.FindPlayerTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.FindPlayerTitle.Name = "FindPlayerTitle";
+            this.FindPlayerTitle.Size = new System.Drawing.Size(95, 23);
+            this.FindPlayerTitle.TabIndex = 6;
+            this.FindPlayerTitle.Text = "Find Player";
+            // 
+            // playerSearchReturnList
+            // 
+            this.playerSearchReturnList.AllowUserToAddRows = false;
+            this.playerSearchReturnList.AllowUserToDeleteRows = false;
+            this.playerSearchReturnList.AllowUserToResizeColumns = false;
+            this.playerSearchReturnList.AllowUserToResizeRows = false;
+            this.playerSearchReturnList.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.playerSearchReturnList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.playerSearchReturnList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.playerSearchReturnList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.playerSearchReturnList.EnableHeadersVisualStyles = false;
+            this.playerSearchReturnList.Location = new System.Drawing.Point(117, 185);
+            this.playerSearchReturnList.MultiSelect = false;
+            this.playerSearchReturnList.Name = "playerSearchReturnList";
+            this.playerSearchReturnList.ReadOnly = true;
+            this.playerSearchReturnList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.playerSearchReturnList.RowHeadersVisible = false;
+            this.playerSearchReturnList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.playerSearchReturnList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.playerSearchReturnList.Size = new System.Drawing.Size(324, 260);
+            this.playerSearchReturnList.TabIndex = 11;
+            this.playerSearchReturnList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.playerSearchReturnList_CellDoubleClick);
+            // 
+            // searchPlayerButton
+            // 
+            this.searchPlayerButton.Location = new System.Drawing.Point(541, 390);
+            this.searchPlayerButton.Name = "searchPlayerButton";
+            this.searchPlayerButton.Size = new System.Drawing.Size(162, 55);
+            this.searchPlayerButton.TabIndex = 15;
+            this.searchPlayerButton.Text = "Search";
+            this.searchPlayerButton.UseVisualStyleBackColor = true;
+            this.searchPlayerButton.Click += new System.EventHandler(this.searchPlayerButton_Click);
+            // 
+            // HintLabel
+            // 
+            this.HintLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.HintLabel.BackColor = System.Drawing.SystemColors.Window;
+            this.HintLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HintLabel.Location = new System.Drawing.Point(113, 163);
+            this.HintLabel.Name = "HintLabel";
+            this.HintLabel.Size = new System.Drawing.Size(254, 19);
+            this.HintLabel.TabIndex = 20;
+            this.HintLabel.Text = "Double click on player for more info";
+            this.HintLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // label1
+            // 
+            this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.label1.BackColor = System.Drawing.SystemColors.Window;
+            this.label1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(116, 105);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(254, 19);
+            this.label1.TabIndex = 26;
+            this.label1.Text = "Double click on team for more info";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
+            // 
+            // teamSearchButton
+            // 
+            this.teamSearchButton.Location = new System.Drawing.Point(544, 389);
+            this.teamSearchButton.Name = "teamSearchButton";
+            this.teamSearchButton.Size = new System.Drawing.Size(162, 55);
+            this.teamSearchButton.TabIndex = 25;
+            this.teamSearchButton.Text = "Search";
+            this.teamSearchButton.UseVisualStyleBackColor = true;
+            this.teamSearchButton.Click += new System.EventHandler(this.teamSearchButton_Click);
+            // 
+            // teamSearchReturnList
+            // 
+            this.teamSearchReturnList.AllowUserToAddRows = false;
+            this.teamSearchReturnList.AllowUserToDeleteRows = false;
+            this.teamSearchReturnList.AllowUserToResizeColumns = false;
+            this.teamSearchReturnList.AllowUserToResizeRows = false;
+            this.teamSearchReturnList.BackgroundColor = System.Drawing.SystemColors.Window;
+            this.teamSearchReturnList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
+            this.teamSearchReturnList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
+            this.teamSearchReturnList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.teamSearchReturnList.EnableHeadersVisualStyles = false;
+            this.teamSearchReturnList.Location = new System.Drawing.Point(120, 127);
+            this.teamSearchReturnList.MultiSelect = false;
+            this.teamSearchReturnList.Name = "teamSearchReturnList";
+            this.teamSearchReturnList.ReadOnly = true;
+            this.teamSearchReturnList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
+            this.teamSearchReturnList.RowHeadersVisible = false;
+            this.teamSearchReturnList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
+            this.teamSearchReturnList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.teamSearchReturnList.Size = new System.Drawing.Size(324, 317);
+            this.teamSearchReturnList.TabIndex = 24;
+            this.teamSearchReturnList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.teamSearchReturnList_CellDoubleClick);
+            // 
+            // teamSearchLabel
+            // 
+            this.teamSearchLabel.AutoSize = true;
+            this.teamSearchLabel.Location = new System.Drawing.Point(5, 42);
+            this.teamSearchLabel.Name = "teamSearchLabel";
+            this.teamSearchLabel.Size = new System.Drawing.Size(47, 19);
+            this.teamSearchLabel.TabIndex = 23;
+            this.teamSearchLabel.Text = "Name";
+            // 
+            // teamSearchNameTextbox
+            // 
+            this.teamSearchNameTextbox.Location = new System.Drawing.Point(9, 65);
+            this.teamSearchNameTextbox.Name = "teamSearchNameTextbox";
+            this.teamSearchNameTextbox.Size = new System.Drawing.Size(697, 27);
+            this.teamSearchNameTextbox.TabIndex = 22;
+            // 
+            // findTeamTitle
+            // 
+            this.findTeamTitle.AutoSize = true;
+            this.findTeamTitle.Font = new System.Drawing.Font("Calibri", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.findTeamTitle.Location = new System.Drawing.Point(8, 7);
+            this.findTeamTitle.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
+            this.findTeamTitle.Name = "findTeamTitle";
+            this.findTeamTitle.Size = new System.Drawing.Size(87, 23);
+            this.findTeamTitle.TabIndex = 21;
+            this.findTeamTitle.Text = "Find Team";
             // 
             // SetupWindow
             // 
@@ -475,6 +667,12 @@ namespace DigitalCricketScorer
             this.addTeamTab.PerformLayout();
             this.findMatchTab.ResumeLayout(false);
             this.findMatchTab.PerformLayout();
+            this.findTeamTab.ResumeLayout(false);
+            this.findTeamTab.PerformLayout();
+            this.findPlayerTab.ResumeLayout(false);
+            this.findPlayerTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.playerSearchReturnList)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.teamSearchReturnList)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -515,5 +713,19 @@ namespace DigitalCricketScorer
         private System.Windows.Forms.MonthCalendar findMatchCalendar;
         private System.Windows.Forms.Label findMatchDateLabel;
         private System.Windows.Forms.Label findMatchTitle;
+        private DataGridView playerSearchReturnList;
+        private TextBox playerSearchSurnameTextbox;
+        private Label SurnamePlayerLabel;
+        private Label firstNamePlayerLabel;
+        private TextBox playerSearchFirstnameTextbox;
+        private Label FindPlayerTitle;
+        private Button searchPlayerButton;
+        private Label HintLabel;
+        private Label label1;
+        private Button teamSearchButton;
+        private DataGridView teamSearchReturnList;
+        private Label teamSearchLabel;
+        private TextBox teamSearchNameTextbox;
+        private Label findTeamTitle;
     }
 }

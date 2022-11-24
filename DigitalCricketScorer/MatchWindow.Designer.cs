@@ -28,12 +28,12 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
             this.matchDateLabel = new System.Windows.Forms.Label();
             this.homeTeamScoreLabel = new System.Windows.Forms.Label();
             this.awayTeamScoreLabel = new System.Windows.Forms.Label();
@@ -41,6 +41,7 @@
             this.awayTeamPlayerList = new System.Windows.Forms.DataGridView();
             this.tossOutcomelabel = new System.Windows.Forms.Label();
             this.ballByBallList = new System.Windows.Forms.ListBox();
+            this.HintLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.homeTeamPlayerList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.awayTeamPlayerList)).BeginInit();
             this.SuspendLayout();
@@ -79,19 +80,21 @@
             // 
             this.homeTeamPlayerList.AllowUserToAddRows = false;
             this.homeTeamPlayerList.AllowUserToDeleteRows = false;
+            this.homeTeamPlayerList.AllowUserToResizeColumns = false;
+            this.homeTeamPlayerList.AllowUserToResizeRows = false;
             this.homeTeamPlayerList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.homeTeamPlayerList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.homeTeamPlayerList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.homeTeamPlayerList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.homeTeamPlayerList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle7.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.homeTeamPlayerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.homeTeamPlayerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.homeTeamPlayerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.homeTeamPlayerList.EnableHeadersVisualStyles = false;
             this.homeTeamPlayerList.GridColor = System.Drawing.SystemColors.WindowText;
@@ -101,44 +104,47 @@
             this.homeTeamPlayerList.Name = "homeTeamPlayerList";
             this.homeTeamPlayerList.ReadOnly = true;
             this.homeTeamPlayerList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle8.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.homeTeamPlayerList.RowHeadersDefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.homeTeamPlayerList.RowHeadersDefaultCellStyle = dataGridViewCellStyle2;
             this.homeTeamPlayerList.RowHeadersVisible = false;
             this.homeTeamPlayerList.RowHeadersWidth = 30;
             this.homeTeamPlayerList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle9.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.homeTeamPlayerList.RowsDefaultCellStyle = dataGridViewCellStyle9;
+            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle3.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle3.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.homeTeamPlayerList.RowsDefaultCellStyle = dataGridViewCellStyle3;
             this.homeTeamPlayerList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.homeTeamPlayerList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.homeTeamPlayerList.Size = new System.Drawing.Size(254, 270);
             this.homeTeamPlayerList.TabIndex = 14;
+            this.homeTeamPlayerList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.homeTeamPlayerList_CellDoubleClick);
             this.homeTeamPlayerList.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GridViewColumnAdded);
             // 
             // awayTeamPlayerList
             // 
             this.awayTeamPlayerList.AllowUserToAddRows = false;
             this.awayTeamPlayerList.AllowUserToDeleteRows = false;
+            this.awayTeamPlayerList.AllowUserToResizeColumns = false;
+            this.awayTeamPlayerList.AllowUserToResizeRows = false;
             this.awayTeamPlayerList.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.awayTeamPlayerList.BackgroundColor = System.Drawing.SystemColors.Control;
             this.awayTeamPlayerList.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.awayTeamPlayerList.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.SingleHorizontal;
             this.awayTeamPlayerList.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle10.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.awayTeamPlayerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
+            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle4.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle4.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle4.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.awayTeamPlayerList.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
             this.awayTeamPlayerList.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.awayTeamPlayerList.EnableHeadersVisualStyles = false;
             this.awayTeamPlayerList.GridColor = System.Drawing.SystemColors.WindowText;
@@ -148,25 +154,26 @@
             this.awayTeamPlayerList.Name = "awayTeamPlayerList";
             this.awayTeamPlayerList.ReadOnly = true;
             this.awayTeamPlayerList.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle11.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.SystemColors.WindowText;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.awayTeamPlayerList.RowHeadersDefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle5.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle5.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle5.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.awayTeamPlayerList.RowHeadersDefaultCellStyle = dataGridViewCellStyle5;
             this.awayTeamPlayerList.RowHeadersVisible = false;
             this.awayTeamPlayerList.RowHeadersWidth = 30;
             this.awayTeamPlayerList.RowHeadersWidthSizeMode = System.Windows.Forms.DataGridViewRowHeadersWidthSizeMode.DisableResizing;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
-            dataGridViewCellStyle12.BackColor = System.Drawing.SystemColors.Control;
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.awayTeamPlayerList.RowsDefaultCellStyle = dataGridViewCellStyle12;
+            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
+            dataGridViewCellStyle6.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle6.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.awayTeamPlayerList.RowsDefaultCellStyle = dataGridViewCellStyle6;
             this.awayTeamPlayerList.RowTemplate.Resizable = System.Windows.Forms.DataGridViewTriState.False;
             this.awayTeamPlayerList.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.awayTeamPlayerList.Size = new System.Drawing.Size(254, 270);
             this.awayTeamPlayerList.TabIndex = 15;
+            this.awayTeamPlayerList.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.awayTeamPlayerList_CellDoubleClick);
             this.awayTeamPlayerList.ColumnAdded += new System.Windows.Forms.DataGridViewColumnEventHandler(this.GridViewColumnAdded);
             // 
             // tossOutcomelabel
@@ -191,11 +198,24 @@
             this.ballByBallList.Size = new System.Drawing.Size(537, 232);
             this.ballByBallList.TabIndex = 18;
             // 
+            // HintLabel
+            // 
+            this.HintLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.HintLabel.BackColor = System.Drawing.SystemColors.Control;
+            this.HintLabel.Font = new System.Drawing.Font("Calibri", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.HintLabel.Location = new System.Drawing.Point(296, 91);
+            this.HintLabel.Name = "HintLabel";
+            this.HintLabel.Size = new System.Drawing.Size(254, 19);
+            this.HintLabel.TabIndex = 19;
+            this.HintLabel.Text = "Double click on player for more info";
+            this.HintLabel.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            // 
             // MatchWindow
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 19F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(563, 647);
+            this.Controls.Add(this.HintLabel);
             this.Controls.Add(this.ballByBallList);
             this.Controls.Add(this.tossOutcomelabel);
             this.Controls.Add(this.awayTeamPlayerList);
@@ -225,5 +245,6 @@
         private System.Windows.Forms.DataGridView awayTeamPlayerList;
         private System.Windows.Forms.Label tossOutcomelabel;
         private System.Windows.Forms.ListBox ballByBallList;
+        private System.Windows.Forms.Label HintLabel;
     }
 }

@@ -18,6 +18,7 @@ namespace DigitalCricketScorer
         private BindingList<BowlerStats> bowlerStats = new BindingList<BowlerStats>();
         private BindingList<BatsmanStats> facingBatsmanStats = new BindingList<BatsmanStats>();
         private BindingList<BowlerStats> facingBowlerStats = new BindingList<BowlerStats>();
+        private bool enableWinPredictor;
 
         public ScorerWindow(Match currentMatch)
         {
@@ -48,6 +49,17 @@ namespace DigitalCricketScorer
             facingBowlerStats.Clear();
             bowlerStats.Clear();
             batsmanStats.Clear();
+
+            if ((currentMatch.homeBattingFirst && !currentMatch.homeCurrentlyBatting) || (!currentMatch.homeBattingFirst && currentMatch.homeCurrentlyBatting))
+            {
+                enableWinPredictor = true;
+                winPredictorPanel.Visible = true;
+            }
+            else
+            {
+                enableWinPredictor = false;
+                winPredictorPanel.Visible = false;
+            }
 
             facingBatsmanStats.Add(currentMatch.SelectBatsman().batsmanStats);
             facingBatsmanStats.Add(currentMatch.SelectBatsman().batsmanStats);
@@ -84,6 +96,30 @@ namespace DigitalCricketScorer
 
             Extras teamExtras = currentMatch.homeCurrentlyBatting ? currentMatch.homeMatchTeam.extras : currentMatch.awayMatchTeam.extras;
             extrasLabel.Text = teamExtras.wide + "w " + teamExtras.noBall + "nb " + teamExtras.bye + "b " + teamExtras.legBye + "lb";
+
+            if (enableWinPredictor && currentMatch.currentOver != 0)
+            {
+                bool secondTeamWin = CalculateWin(currentMatch.homeCurrentlyBatting ? currentMatch.awayMatchTeam : currentMatch.homeMatchTeam, currentMatch.homeCurrentlyBatting ? currentMatch.homeMatchTeam : currentMatch.awayMatchTeam);
+            
+                if (currentMatch.homeCurrentlyBatting)
+                {
+                    winPredictorResultLabel.Text = (secondTeamWin ? currentMatch.homeTeam.name : currentMatch.awayTeam.name) + " are likely to win";
+                }
+                else
+                {
+                    winPredictorResultLabel.Text = (secondTeamWin ? currentMatch.awayTeam.name : currentMatch.homeTeam.name) + " are likely to win";
+                }
+            }
+        }
+
+        private bool CalculateWin(MatchTeam firstTeam, MatchTeam secondTeam)
+        {
+            decimal firstTeamRunsPerOver = firstTeam.runCount / 20m;
+            Console.WriteLine("1st: " + firstTeamRunsPerOver);
+            decimal secondTeamRunsPerOver = secondTeam.runCount / ((currentMatch.currentOver % 1 * 10 / 6) + (currentMatch.currentOver - (currentMatch.currentOver % 1)));
+            Console.WriteLine("2nd: " + secondTeamRunsPerOver);
+            if (secondTeamRunsPerOver > firstTeamRunsPerOver|| secondTeam.runCount > firstTeam.runCount) return true;
+            else return false;
         }
 
         private void SelectGridRow(DataGridView grid, int rowIndex, int highlightType)

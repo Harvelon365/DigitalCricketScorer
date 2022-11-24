@@ -29,7 +29,7 @@
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
+    <PlatformTarget>x86</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -77,6 +77,12 @@
     <Compile Include="MatchWindow.Designer.cs">
       <DependentUpon>MatchWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="PlayerWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="PlayerWindow.Designer.cs">
+      <DependentUpon>PlayerWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScorerWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -99,6 +105,12 @@
     </Compile>
     <Compile Include="SQLUtils.cs" />
     <Compile Include="Team.cs" />
+    <Compile Include="TeamWindow.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="TeamWindow.Designer.cs">
+      <DependentUpon>TeamWindow.cs</DependentUpon>
+    </Compile>
     <Compile Include="WicketWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -110,6 +122,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="MatchWindow.resx">
       <DependentUpon>MatchWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="PlayerWindow.resx">
+      <DependentUpon>PlayerWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScorerWindow.resx">
       <DependentUpon>ScorerWindow.cs</DependentUpon>
@@ -129,6 +144,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="SetupWindow.resx">
       <DependentUpon>SetupWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="TeamWindow.resx">
+      <DependentUpon>TeamWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="WicketWindow.resx">
       <DependentUpon>WicketWindow.cs</DependentUpon>

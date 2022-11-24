@@ -29,7 +29,7 @@ namespace DigitalCricketScorer
             set
             {
                 _currentOver = value;
-                oversRemaining = 20 - currentOver - 0.4m;
+                oversRemaining = 1 - currentOver - 0.4m; //TODO change values back to 20
             }
         }
         public decimal oversRemaining;
@@ -98,7 +98,7 @@ namespace DigitalCricketScorer
             {
                 ballString += "I|";
                 SQLUtils.SaveMatchData(this);
-                new MatchWindow(this).Show();
+                new MatchWindow(this, true).Show();
                 main.Hide();
                 return false;
             }

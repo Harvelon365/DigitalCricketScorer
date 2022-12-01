@@ -12,9 +12,13 @@ using System.Windows.Forms;
 
 namespace DigitalCricketScorer
 {
+    /// <summary>
+    /// This is the first window that opens in the program
+    /// It allows the user to: Start a match, Create new players and teams and View old matches, players and teams
+    /// </summary>
     public partial class SetupWindow
     {
-        private DataTable teamData;
+        private DataTable teamData { get; set; }
 
         public SetupWindow()
         {
@@ -28,13 +32,13 @@ namespace DigitalCricketScorer
             GetTeams();
         }
 
+        // Gets the names of the teams from the database and displays them in the dropdown menu
         private void GetTeams()
         {
             teamData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Team");
             homeTeamDropDown.Items.Clear();
             awayTeamDropDown.Items.Clear();
             playerTeamDropdown.Items.Clear();
-
 
             foreach (DataRow row in teamData.Rows)
             {
@@ -44,6 +48,7 @@ namespace DigitalCricketScorer
             }
         }
 
+        // Validates all data input by the user and, if correct, starts the match
         private void beginButton_Click(object sender, EventArgs e)
         {
             if (homeTeamDropDown.SelectedIndex == awayTeamDropDown.SelectedIndex)
@@ -66,7 +71,7 @@ namespace DigitalCricketScorer
                 MessageBox.Show("Please select the toss outcome!", "Match Creation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
-            if (SQLUtils.ExecuteSQL("SELECT * FROM tbl_Match WHERE MatchDay = #" + matchDateCalendar.SelectionStart.Date.ToString("yyyy/MM/dd") + "#").Rows.Count > 0)
+            if (SQLUtils.ExecuteSQL("SELECT MatchDay FROM tbl_Match WHERE MatchDay = #" + matchDateCalendar.SelectionStart.Date.ToString("yyyy/MM/dd") + "#").Rows.Count > 0)
             {
                 MessageBox.Show("Match date overlap! Please select a new date!", "Match Creation", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
@@ -79,6 +84,7 @@ namespace DigitalCricketScorer
             Hide();
         }
 
+        // Validates all data input by the user and, if correct, creates a new player
         private void addPlayerButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(playerFirstNameTextbox.Text))
@@ -104,6 +110,7 @@ namespace DigitalCricketScorer
             playerFirstNameTextbox.Text = null;
         }
 
+        // Validates all data input by the user and, if correct, creates a new team
         private void addTeamButton_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(teamNameTextbox.Text))
@@ -117,11 +124,13 @@ namespace DigitalCricketScorer
             teamNameTextbox.Text = null;
         }
 
+        // Refreshes team lists when tab is changed
         private void setupWindowTabControl_Selecting(object sender, TabControlCancelEventArgs e)
         {
             GetTeams();
         }
 
+        // Gets the match from the database for the date selected by the user and displays the data in a window
         private void findMatchButton_Click(object sender, EventArgs e)
         {
             DataTable matchData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Match WHERE MatchDay = #" + findMatchCalendar.SelectionStart.Date.ToString("yyyy/MM/dd") + "#");
@@ -133,7 +142,7 @@ namespace DigitalCricketScorer
 
 
             DataRow row = matchData.Rows[0];
-            bool homebattingfirst = false;
+            bool homebattingfirst;
             if ((bool)row[10] && (bool)row[11] || !(bool)row[10] && !(bool)row[11]) homebattingfirst = true;
             else homebattingfirst = false;
             Match viewingMatch = new Match((int)row[2], (int)row[6], (DateTime)row[1], (bool)row[10], homebattingfirst)
@@ -146,12 +155,7 @@ namespace DigitalCricketScorer
             new MatchWindow(viewingMatch, false).Show();
         }
 
-        private void playerSearchReturnList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
-        {
-            DataTable playerData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Player WHERE PlayerID = " + playerSearchReturnList.Rows[e.RowIndex].Cells[0].Value);
-            new PlayerWindow(playerData).Show();
-        }
-
+        // Gets the list of players from the database for the name input by the user and displays the output
         private void searchPlayerButton_Click(object sender, EventArgs e)
         {
             DataTable playerReturnData = SQLUtils.ExecuteSQL("SELECT PlayerID, FirstName, Surname FROM tbl_Player WHERE FirstName LIKE '%" + playerSearchFirstnameTextbox.Text + "%' AND Surname LIKE '%" + playerSearchSurnameTextbox.Text + "%'");
@@ -160,10 +164,23 @@ namespace DigitalCricketScorer
                 MessageBox.Show("No players found!", "Player Finding", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (playerSortModeBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a sort mode!", "Player Finding", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
-            playerSearchReturnList.DataSource = playerReturnData;
+            playerSearchReturnList.DataSource = SQLUtils.BubbleSort(playerReturnData, playerSortModeBox.SelectedIndex);
         }
 
+        // Opens information about a player if their name is clicked
+        private void playerSearchReturnList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            DataTable playerData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Player WHERE PlayerID = " + playerSearchReturnList.Rows[e.RowIndex].Cells[0].Value);
+            new PlayerWindow(playerData).Show();
+        }
+
+        // Gets the list of teams from the database for the name input by the user and displays the output
         private void teamSearchButton_Click(object sender, EventArgs e)
         {
             DataTable teamReturnData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Team WHERE Name LIKE '%" + teamSearchNameTextbox.Text + "%'");
@@ -172,10 +189,16 @@ namespace DigitalCricketScorer
                 MessageBox.Show("No teams found!", "Team Finding", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 return;
             }
+            if (teamSortModeBox.SelectedIndex == -1)
+            {
+                MessageBox.Show("Please select a sort mode!", "Team Finding", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
+            }
 
-            teamSearchReturnList.DataSource = teamReturnData;
+            teamSearchReturnList.DataSource = SQLUtils.BubbleSort(teamReturnData, teamSortModeBox.SelectedIndex);
         }
 
+        // Opens information about a team if their name is clicked
         private void teamSearchReturnList_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             DataTable teamData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Team WHERE TeamID = " + teamSearchReturnList.Rows[e.RowIndex].Cells[0].Value);

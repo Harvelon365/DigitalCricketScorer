@@ -83,6 +83,12 @@
     <Compile Include="PlayerWindow.Designer.cs">
       <DependentUpon>PlayerWindow.cs</DependentUpon>
     </Compile>
+    <Compile Include="SavingProgressBar.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SavingProgressBar.Designer.cs">
+      <DependentUpon>SavingProgressBar.cs</DependentUpon>
+    </Compile>
     <Compile Include="ScorerWindow.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -125,6 +131,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="PlayerWindow.resx">
       <DependentUpon>PlayerWindow.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SavingProgressBar.resx">
+      <DependentUpon>SavingProgressBar.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ScorerWindow.resx">
       <DependentUpon>ScorerWindow.cs</DependentUpon>

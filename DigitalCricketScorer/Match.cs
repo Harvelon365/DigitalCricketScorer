@@ -8,6 +8,9 @@ using System.Windows.Forms;
 
 namespace DigitalCricketScorer
 {
+    /// <summary>
+    /// Class that holds the data about the current match which may change over its duration
+    /// </summary>
     public class Match
     {
         public string ballString { get; set; }
@@ -29,7 +32,7 @@ namespace DigitalCricketScorer
             set
             {
                 _currentOver = value;
-                oversRemaining = 1 - currentOver - 0.4m; //TODO change values back to 20
+                oversRemaining = 20 - currentOver - 0.4m;
             }
         }
         public decimal oversRemaining;
@@ -48,6 +51,7 @@ namespace DigitalCricketScorer
 
         }
 
+        // Opens a SelectPlayerWindow to allow a user to select a batsman for a match
         public MatchPlayer SelectBatsman()
         {
             MatchPlayer tempPlayer = null;
@@ -62,6 +66,7 @@ namespace DigitalCricketScorer
             return tempPlayer;
         }
 
+        // Opens a SelectPlayerWindow to allow a user to select a bowler for a match
         public MatchPlayer SelectBowler()
         {
             MatchPlayer tempPlayer = null;
@@ -76,6 +81,7 @@ namespace DigitalCricketScorer
             return tempPlayer;
         }
 
+        // Checks if both teams' innings have been complete and either ends the match or starts the second innings
         public bool EndInnings(ScorerWindow main)
         {
             MessageBox.Show("Innings Finished!\n" + (homeCurrentlyBatting ? homeTeam.name : awayTeam.name) + "\n" + (homeCurrentlyBatting ? homeMatchTeam.runCount + "/" + homeMatchTeam.wicketCount : awayMatchTeam.runCount + "/" + awayMatchTeam.wicketCount), "Innings Finished", MessageBoxButtons.OK, MessageBoxIcon.Information);

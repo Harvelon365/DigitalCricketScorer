@@ -10,14 +10,20 @@ using System.Data.OleDb;
 using System.Data;
 using System.Windows.Forms;
 using System.Diagnostics;
+using System.Threading;
 
 namespace DigitalCricketScorer
 {
+    /// <summary>
+    /// This class handles all direct interaction between the program and the external database
+    /// It also includes methods that more than one scipt may need access to
+    /// </summary>
     internal static class SQLUtils
     {
         private const string CRICKET_DATABASE = "CricketDatabase.mdb";
         private const string CONNECTION_STRING = @"Provider=Microsoft Jet 4.0 OLE DB Provider;Data Source = " + CRICKET_DATABASE + ";";
 
+        // Creates the connection to the database
         public static void CreateDatabase()
         {
             CatalogClass cat = new CatalogClass();
@@ -29,6 +35,7 @@ namespace DigitalCricketScorer
             }
         }
 
+        // Creates the tables in the database
         private static void CreateTables()
         {
             string sqlString;
@@ -81,6 +88,7 @@ namespace DigitalCricketScorer
             ExecuteSQL(sqlString);
         }
 
+        // Public method that allows other code to get and set data in the database
         public static DataTable ExecuteSQL(string sqlString)
         {
             DataTable data = new DataTable();
@@ -110,6 +118,7 @@ namespace DigitalCricketScorer
             return null;
         }
 
+        // Loads the data for a team specifies by its ID
         public static Team LoadTeam(int teamID)
         {
             DataTable teamData = SQLUtils.ExecuteSQL("SELECT * FROM tbl_Team WHERE TeamID = " + teamID);
@@ -124,10 +133,15 @@ namespace DigitalCricketScorer
             return new Team((int)teamData.Rows[0][0], teamData.Rows[0][1].ToString(), playerList);
         }
 
+        //Saves all data relating to a match and starts the saving of the individual team data
         public static void SaveMatchData(Match match)
         {
+            SavingProgressBar bar = new SavingProgressBar();
+            bar.Update();
             try
             {
+                bar.Show();
+                bar.UpdateProgress("Serialising fields...");
                 string homeExtras = match.homeMatchTeam.extras.bye + "," + match.homeMatchTeam.extras.legBye + "," + match.homeMatchTeam.extras.wide + "," + match.homeMatchTeam.extras.noBall;
                 string awayExtras = match.awayMatchTeam.extras.bye + "," + match.awayMatchTeam.extras.legBye + "," + match.awayMatchTeam.extras.wide + "," + match.awayMatchTeam.extras.noBall;
                 bool tossChoseToBat;
@@ -139,6 +153,7 @@ namespace DigitalCricketScorer
                 {
                     tossChoseToBat = false;
                 }
+                bar.UpdateProgress("Saving match data...");
                 ExecuteSQL("INSERT INTO tbl_Match (MatchDay, HomeTeamID, HomeRuns, HomeWickets, HomeExtras, AwayTeamID, AwayRuns, AwayWickets, AwayExtras, TossWonByHome, TossChoseToBat, BallArray) " +
                     "VALUES ('" + match.matchDate.ToShortDateString() + "', " + match.homeTeam.Id + ", " + match.homeMatchTeam.runCount + ", " + match.homeMatchTeam.wicketCount + ", '" + homeExtras + "', " + match.awayTeam.Id + ", " + match.awayMatchTeam.runCount + ", " + match.awayMatchTeam.wicketCount + ", '" + awayExtras + "', " + match.tossWonByHome + ", " + tossChoseToBat + ", '" + match.ballString + "')");
             }
@@ -148,10 +163,14 @@ namespace DigitalCricketScorer
                 Application.Exit();
             }
 
+            bar.UpdateProgress("Saving home team data...");
             if (!SaveTeam(match.homeTeam)) Application.Exit();
+            bar.UpdateProgress("Saving away team data...");
             if (!SaveTeam(match.awayTeam)) Application.Exit();
+            bar.Close();
         }
 
+        // Saves the data relating to the specified team
         private static bool SaveTeam(Team team)
         {
             try
@@ -190,6 +209,43 @@ namespace DigitalCricketScorer
                 return false;
             }
             return true;
+        }
+
+        // Performs a bubble sort algorithm on the passed in table using the sortColumnIndex as the criteria
+        public static DataTable BubbleSort(DataTable input, int sortColumnIndex)
+        {
+            for (int i = 0; i < input.Rows.Count; i++)
+            {
+                for (int j = 0; j < input.Rows.Count - 1; j++)
+                {
+                    if (sortColumnIndex != 0)
+                    {
+                        if (string.Compare((string)input.Rows[j][sortColumnIndex], (string)input.Rows[j + 1][sortColumnIndex]) > 0)
+                        {
+                            object[] temp1 = input.Rows[j].ItemArray;
+                            object[] temp2 = input.Rows[j + 1].ItemArray;
+
+                            input.Rows[j].ItemArray = temp2;
+
+                            input.Rows[j + 1].ItemArray = temp1;
+                        }
+                    }
+                    else
+                    {
+                        if ((int)input.Rows[j][sortColumnIndex] > (int)input.Rows[j + 1][sortColumnIndex])
+                        {
+                            object[] temp1 = input.Rows[j].ItemArray;
+                            object[] temp2 = input.Rows[j + 1].ItemArray;
+
+                            input.Rows[j].ItemArray = temp2;
+
+                            input.Rows[j + 1].ItemArray = temp1;
+                        }
+                    }
+                }
+            }
+
+            return input;
         }
     }
 }

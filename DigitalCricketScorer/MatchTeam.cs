@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DigitalCricketScorer
 {
+    /// <summary>
+    /// Class holding data for a team in the current match that may change during its duration
+    /// </summary>
     public class MatchTeam
     {
         public int runCount;

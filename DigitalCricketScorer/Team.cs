@@ -6,6 +6,9 @@ using System.Threading.Tasks;
 
 namespace DigitalCricketScorer
 {
+    /// <summary>
+    /// Class to store the data for a team that will not change during a match
+    /// </summary>
     public class Team
     {
         public int Id { private set; get; }

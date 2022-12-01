@@ -7,6 +7,9 @@ using System.Threading.Tasks;
 
 namespace DigitalCricketScorer
 {
+    /// <summary>
+    /// Class that holds all the data for a player that may change during a match
+    /// </summary>
     public class MatchPlayer
     {
         [DisplayName("id")]
@@ -42,6 +45,9 @@ namespace DigitalCricketScorer
         }
     }
 
+    /// <summary>
+    /// Class that holds all the player data relating to batting
+    /// </summary>
     public class BatsmanStats : INotifyPropertyChanged
     {
         public MatchPlayer player;
@@ -84,7 +90,7 @@ namespace DigitalCricketScorer
             {
                 try
                 {
-                    _strikeRate = Math.Round((decimal)runsScored / balls * 100, 2);
+                    _strikeRate = Math.Round((decimal)runsScored / balls * 100, 2); // Calculates and returns the strike rate
                 }
                 catch (Exception)
                 {
@@ -106,6 +112,9 @@ namespace DigitalCricketScorer
         }
     }
 
+    /// <summary>
+    /// Class that holds all the player data related to bowling
+    /// </summary>
     public class BowlerStats : INotifyPropertyChanged
     {
         public MatchPlayer player;
@@ -148,7 +157,7 @@ namespace DigitalCricketScorer
             {
                 try
                 {
-                    _rpo = Math.Round(runsConceded / ((overs % 1 * 10 / 6) + (overs - (overs % 1))), 2);
+                    _rpo = Math.Round(runsConceded / ((overs % 1 * 10 / 6) + (overs - (overs % 1))), 2); // Calculates and returns the runs per over
                 }
                 catch (Exception)
                 {

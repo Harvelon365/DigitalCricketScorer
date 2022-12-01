@@ -11,6 +11,10 @@ using System.Windows.Forms;
 
 namespace DigitalCricketScorer
 {
+    /// <summary>
+    /// Main code of the project
+    /// Window allows the user to score the created cricket match ball-by-ball
+    /// </summary>
     public partial class ScorerWindow : Form
     {
         private Match currentMatch;
@@ -20,6 +24,7 @@ namespace DigitalCricketScorer
         private BindingList<BowlerStats> facingBowlerStats = new BindingList<BowlerStats>();
         private bool enableWinPredictor;
 
+        // Displays a messagebox that comfirms the match has been created
         public ScorerWindow(Match currentMatch)
         {
             this.currentMatch = currentMatch;
@@ -28,6 +33,7 @@ namespace DigitalCricketScorer
             this.FormClosed += new FormClosedEventHandler(WindowClosed);
         }
 
+        // Links the data to the display
         private void MainWindow_Load(object sender, EventArgs e)
         {
             facingBatsmenGrid.Enabled = false;
@@ -43,6 +49,7 @@ namespace DigitalCricketScorer
             UpdateScoreTexts();
         }
 
+        // Resets all values in the window and sets them up ready for the next innings
         private void SetupScorerWindow(object sender = null, EventArgs e = null)
         {
             facingBatsmanStats.Clear();
@@ -78,6 +85,7 @@ namespace DigitalCricketScorer
             Application.Exit();
         }
 
+        // Updates the label elements with new values to display scores and match stats
         private void UpdateScoreTexts()
         {
             if (currentMatch.homeCurrentlyBatting)
@@ -112,6 +120,7 @@ namespace DigitalCricketScorer
             }
         }
 
+        // Calculates which team is most likely to win at any given time during a match
         private bool CalculateWin(MatchTeam firstTeam, MatchTeam secondTeam)
         {
             decimal firstTeamRunsPerOver = firstTeam.runCount / 20m;
@@ -122,6 +131,7 @@ namespace DigitalCricketScorer
             else return false;
         }
 
+        // Highlights the specified grid row to display the active player in the list
         private void SelectGridRow(DataGridView grid, int rowIndex, int highlightType)
         {
             for (int i = 0; i < grid.RowCount; i++)
@@ -143,6 +153,7 @@ namespace DigitalCricketScorer
             }
         }
 
+        // Initiates the highlighting of specified grid rows
         private void SelectAllGridRows()
         {
             SelectGridRow(facingBatsmenGrid, facingBatsmanStats.IndexOf(facingBatsmanStats.SingleOrDefault(x => x.player.Id == currentMatch.currentBatsmanId)), 0);
@@ -155,6 +166,7 @@ namespace DigitalCricketScorer
             SelectGridRow(bowlerDataGrid, bowlerStats.IndexOf(facingBowlerStats.SingleOrDefault(x => x.player.Id == currentMatch.currentBowlerId)), 0);
         }
 
+        // Handles the logic realting to new runs (batsman swap, stats update, score update, end of over)
         private void NewRun(int runCount, bool stopSwap = false)
         {
             if (!stopSwap) currentMatch.ballString += runCount + "/" + currentMatch.currentBatsmanId + "|";
@@ -182,6 +194,7 @@ namespace DigitalCricketScorer
             SelectAllGridRows();
         }
 
+        // Swaps the two active batsmen
         private void SwapBatsmen()
         {
             foreach (BatsmanStats bat in facingBatsmanStats)
@@ -194,6 +207,7 @@ namespace DigitalCricketScorer
             }
         }
 
+        // Handles the logic relating to starting a new over (stats update, bowler select, end of innings)
         private void StartNewOver()
         {
             string[] overs = currentMatch.ballString.Split('O');
@@ -221,7 +235,7 @@ namespace DigitalCricketScorer
             }
             if (totalThisOver == 0) facingBowlerStats[0].maidens++;
 
-            if (currentMatch.currentOver == 0.6m)
+            if (currentMatch.currentOver == 19.6m)
             {
                 if (currentMatch.EndInnings(this))
                 {
@@ -242,12 +256,14 @@ namespace DigitalCricketScorer
             currentMatch.ballString += "O/" + facingBatsmanStats[0].player.Id + "/" + facingBatsmanStats[1].player.Id + "/" + currentMatch.currentBowlerId + "|";
         }
 
+        // Prevents the user from manually selecting player rows
         private void GridViewClearSelection(object sender, EventArgs e)
         {
             DataGridView grid = sender as DataGridView;
             grid.ClearSelection();
         }
 
+        // Prevents batsmen from being added to the table twice
         private void facingBatsmenGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             if (batsmanStats.Contains((BatsmanStats)facingBatsmenGrid.Rows[e.RowIndex].DataBoundItem))
@@ -260,6 +276,7 @@ namespace DigitalCricketScorer
             }
         }
 
+        // Prevents bowlers from being added to the table twice
         private void facingBowlerGrid_RowsAdded(object sender, DataGridViewRowsAddedEventArgs e)
         {
             if (bowlerStats.Contains((BowlerStats)facingBowlerGrid.Rows[e.RowIndex].DataBoundItem))
@@ -272,6 +289,7 @@ namespace DigitalCricketScorer
             }
         }
 
+        // Sets the width of the columns for the data grid elements
         private void GridViewColumnAdded(object sender, DataGridViewColumnEventArgs e)
         {
             e.Column.SortMode = DataGridViewColumnSortMode.NotSortable;
@@ -303,6 +321,7 @@ namespace DigitalCricketScorer
             }
         }
 
+        // Handles input from the run buttons and triggers the corresponding logic
         private void runButton_click(object sender, EventArgs e)
         {
             currentMatch.ballString += "R/";
@@ -341,6 +360,7 @@ namespace DigitalCricketScorer
             }
         }
 
+        // Handles the logic realting to a Wicket event (batsmen selection, score update, stats update, custom over detection)
         private void wicketButton_click(object sender, EventArgs e)
         {
             MatchPlayer tempPlayer = null;
@@ -382,6 +402,7 @@ namespace DigitalCricketScorer
             SelectAllGridRows();
         }
 
+        // Returns the current active batsman
         private BatsmanStats GetCurrentBatsman()
         {
             foreach (BatsmanStats bat in facingBatsmanStats)
@@ -394,6 +415,7 @@ namespace DigitalCricketScorer
             return null;
         }
 
+        // Handles logic relating to a Bye event
         private void byeBallButton_Click(object sender, EventArgs e)
         {
             using (CustomRunSelectWindow customRunSelectWindow = new CustomRunSelectWindow())
@@ -409,7 +431,8 @@ namespace DigitalCricketScorer
                 }
             }
         }
-        
+
+        // Handles logic relating to a Leg Bye event
         private void legByeBallButton_Click(object sender, EventArgs e)
         {
             using (CustomRunSelectWindow customRunSelectWindow = new CustomRunSelectWindow())
@@ -425,7 +448,8 @@ namespace DigitalCricketScorer
                 }
             }
         }
-        
+
+        // Handles logic relating to a Wide event
         private void wideBallButton_Click(object sender, EventArgs e)
         {
             BatsmanStats bat = GetCurrentBatsman();
@@ -438,7 +462,8 @@ namespace DigitalCricketScorer
             currentMatch.ballString += "WI|";
             NewRun(1, true);
         }
-        
+
+        // Handles logic relating to a No Ball event
         private void noBallButton_Click(object sender, EventArgs e)
         {
             BatsmanStats bat = GetCurrentBatsman();
@@ -450,7 +475,5 @@ namespace DigitalCricketScorer
             currentMatch.ballString += "NB|";
             NewRun(1, true);
         }
-
-        //TODO Add settings menu
     }
 }

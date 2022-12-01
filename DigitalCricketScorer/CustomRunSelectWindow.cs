@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace DigitalCricketScorer
 {
+    /// <summary>
+    /// Window used to allow the user to input a custom amount of runs scored
+    /// </summary>
     public partial class CustomRunSelectWindow : Form
     {
         public int amountOfRuns;
@@ -24,6 +27,7 @@ namespace DigitalCricketScorer
             this.ControlBox = false;
         }
 
+        // Validates that the amount entered by the user is valid and, if correct, exits the window
         private void ChooseAmountButton_click(object sender, EventArgs e)
         {
             int num;

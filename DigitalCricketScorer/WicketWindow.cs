@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace DigitalCricketScorer
 {
+    /// <summary>
+    /// Window that is opened when a user declares that a wicket has occured
+    /// </summary>
     public partial class WicketWindow : Form
     {
         private List<MatchPlayer> playersToShow = new List<MatchPlayer>();
@@ -22,6 +25,7 @@ namespace DigitalCricketScorer
             InitializeComponent();
         }
 
+        // Loads the players and wicket methods into their dropdowns
         private void WicketWindow_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
@@ -32,6 +36,7 @@ namespace DigitalCricketScorer
             wicketSelectDropDown.DataSource = Enum.GetValues(typeof(WicketMethod));
         }
 
+        // Validates the choices from the user and, if correct, exits the window
         private void makeSelectionButton_Click(object sender, EventArgs e)
         {
             if (playerSelectDropDown.SelectedIndex != -1)
@@ -48,6 +53,7 @@ namespace DigitalCricketScorer
         }
     }
 
+    // Enum listing all the methods of how a player can get out
     public enum WicketMethod
     {
         Run = 1,

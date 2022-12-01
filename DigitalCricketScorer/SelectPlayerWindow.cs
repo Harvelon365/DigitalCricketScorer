@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace DigitalCricketScorer
 {
+    /// <summary>
+    /// Window used to allow the user to select a player for use in the match
+    /// </summary>
     public partial class SelectPlayerWindow : Form
     {
         private Team teamToShow;
@@ -22,6 +25,7 @@ namespace DigitalCricketScorer
             Text = windowTitle;
         }
 
+        // Loads the players from teh specified team into the dropdown box
         private void SelectPlayerWindow_Load(object sender, EventArgs e)
         {
             this.ControlBox = false;
@@ -31,6 +35,7 @@ namespace DigitalCricketScorer
             }
         }
 
+        // Validates that the player selected is not already in user and, if correct, closes the window
         private void makeSelectionButton_Click(object sender, EventArgs e)
         {
             if (playerSelectDropDown.SelectedIndex != -1)

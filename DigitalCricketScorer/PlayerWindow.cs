@@ -10,6 +10,9 @@ using System.Windows.Forms;
 
 namespace DigitalCricketScorer
 {
+    /// <summary>
+    /// Window that displays all data relating to a specified player
+    /// </summary>
     public partial class PlayerWindow : Form
     {
         public PlayerWindow(DataTable playerData)

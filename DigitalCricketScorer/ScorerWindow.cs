@@ -147,6 +147,7 @@ namespace DigitalCricketScorer
                         
                         case 1:
                             grid.Rows[i].DefaultCellStyle.BackColor = Color.FromArgb(169, 169, 169);
+                            grid.Rows[i].DefaultCellStyle.ForeColor = Color.Black;
                             break;
                     }
                 }

@@ -105,7 +105,6 @@ namespace DigitalCricketScorer
 
             SQLUtils.ExecuteSQL("INSERT INTO tbl_Player (FirstName, Surname, TeamID) VALUES ('" + playerFirstNameTextbox.Text + "', '" + playerSurnameTextbox.Text + "', " + (int)teamData.Rows[playerTeamDropdown.SelectedIndex][0] + ")");
             MessageBox.Show("Player created!", "Player Creation", MessageBoxButtons.OK, MessageBoxIcon.Information);
-            playerTeamDropdown.SelectedIndex = -1;
             playerSurnameTextbox.Text = null;
             playerFirstNameTextbox.Text = null;
         }

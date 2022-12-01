@@ -92,10 +92,12 @@ namespace DigitalCricketScorer
                 foreach (MatchPlayer p in homeTeam.players)
                 {
                     p.isValid = true;
+                    p.isOut = false;
                 }
                 foreach (MatchPlayer p in awayTeam.players)
                 {
                     p.isValid = true;
+                    p.isOut = false;
                 }
                 currentOver = 0m;
                 return true;

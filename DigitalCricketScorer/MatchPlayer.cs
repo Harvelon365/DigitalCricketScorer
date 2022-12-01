@@ -19,11 +19,11 @@ namespace DigitalCricketScorer
         [DisplayName("Surname")]
         public string surname { private set; get; }
 
-        public bool isValid { get; set; } = true;
-        public bool isOut { get; set; } = false;
+        public bool isValid = true;
+        public bool isOut = false;
 
-        public BatsmanStats batsmanStats { get; set; }
-        public BowlerStats bowlerStats { get; set; }
+        public BatsmanStats batsmanStats;
+        public BowlerStats bowlerStats;
 
         public MatchPlayer(int id, string firstName, string surname)
         {
@@ -40,7 +40,7 @@ namespace DigitalCricketScorer
     /// </summary>
     public class BatsmanStats : INotifyPropertyChanged
     {
-        public MatchPlayer player { get; private set; }
+        public MatchPlayer player;
 
         [DisplayName("Batsman")]
         public string batsmanName { get; private set; }
@@ -107,7 +107,7 @@ namespace DigitalCricketScorer
     /// </summary>
     public class BowlerStats : INotifyPropertyChanged
     {
-        public MatchPlayer player { get; private set; }
+        public MatchPlayer player;
 
         [DisplayName("Bowler")]
         public string bowlerName { get; private set; }

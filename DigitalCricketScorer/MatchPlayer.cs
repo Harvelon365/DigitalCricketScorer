@@ -19,11 +19,11 @@ namespace DigitalCricketScorer
         [DisplayName("Surname")]
         public string surname { private set; get; }
 
-        public bool isValid = true;
-        public bool isOut = false;
+        public bool isValid { get; set; } = true;
+        public bool isOut { get; set; } = false;
 
-        public BatsmanStats batsmanStats;
-        public BowlerStats bowlerStats;
+        public BatsmanStats batsmanStats { get; set; }
+        public BowlerStats bowlerStats { get; set; }
 
         public MatchPlayer(int id, string firstName, string surname)
         {
@@ -33,16 +33,6 @@ namespace DigitalCricketScorer
             batsmanStats = new BatsmanStats(firstName, surname, this);
             bowlerStats = new BowlerStats(firstName, surname, this);
         }
-
-        public object[] GetBatsmanData()
-        {
-            return new object[] { batsmanStats.batsmanName, batsmanStats.runsScored, batsmanStats.balls, batsmanStats.fours, batsmanStats.sixes, batsmanStats.strikeRate };
-        }
-        
-        public object[] GetBowlerData()
-        {
-            return new object[] { bowlerStats.bowlerName, bowlerStats.overs, bowlerStats.maidens, bowlerStats.runsConceded, bowlerStats.wickets, bowlerStats.rpo};
-        }
     }
 
     /// <summary>
@@ -50,7 +40,7 @@ namespace DigitalCricketScorer
     /// </summary>
     public class BatsmanStats : INotifyPropertyChanged
     {
-        public MatchPlayer player;
+        public MatchPlayer player { get; private set; }
 
         [DisplayName("Batsman")]
         public string batsmanName { get; private set; }
@@ -117,7 +107,7 @@ namespace DigitalCricketScorer
     /// </summary>
     public class BowlerStats : INotifyPropertyChanged
     {
-        public MatchPlayer player;
+        public MatchPlayer player { get; private set; }
 
         [DisplayName("Bowler")]
         public string bowlerName { get; private set; }

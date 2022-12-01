@@ -16,7 +16,7 @@ namespace DigitalCricketScorer
     public partial class WicketWindow : Form
     {
         private List<MatchPlayer> playersToShow = new List<MatchPlayer>();
-        public MatchPlayer selectedPlayer;
+        public MatchPlayer selectedPlayer { get; set; }
         public WicketMethod method;
 
         public WicketWindow(List<MatchPlayer> players)

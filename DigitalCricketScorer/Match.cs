@@ -35,9 +35,9 @@ namespace DigitalCricketScorer
                 oversRemaining = 20 - currentOver - 0.4m;
             }
         }
-        public decimal oversRemaining;
-        public int currentBatsmanId;
-        public int currentBowlerId;
+        public decimal oversRemaining { private set; get; }
+        public int currentBatsmanId { set; get; }
+        public int currentBowlerId { set; get; }
 
         public Match(int homeID, int awayID, DateTime mDate, bool tossWonByH, bool hBattingFirst)
         {

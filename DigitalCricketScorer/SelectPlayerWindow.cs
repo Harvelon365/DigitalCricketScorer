@@ -16,7 +16,7 @@ namespace DigitalCricketScorer
     public partial class SelectPlayerWindow : Form
     {
         private Team teamToShow;
-        public MatchPlayer selectedPlayer;
+        public MatchPlayer selectedPlayer { get; set; }
 
         public SelectPlayerWindow(Team team, string windowTitle)
         {

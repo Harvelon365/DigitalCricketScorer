@@ -15,7 +15,7 @@ namespace DigitalCricketScorer
     /// </summary>
     public partial class CustomRunSelectWindow : Form
     {
-        public int amountOfRuns;
+        public int amountOfRuns { get; set; }
 
         public CustomRunSelectWindow()
         {

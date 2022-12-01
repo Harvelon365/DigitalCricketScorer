@@ -18,9 +18,9 @@ namespace DigitalCricketScorer
 
     public struct Extras
     {
-        public int bye;
-        public int legBye;
-        public int wide;
-        public int noBall;
+        public int bye { get; set; }
+        public int legBye { get; set; }
+        public int wide { get; set; }
+        public int noBall { get; set; }
     }
 }

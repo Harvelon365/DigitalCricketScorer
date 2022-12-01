@@ -16,7 +16,7 @@ namespace DigitalCricketScorer
     /// </summary>
     public partial class MatchWindow : Form
     {
-        public Match matchToShow;
+        private Match matchToShow;
         private Dictionary<int, MatchPlayer> matchPlayers = new Dictionary<int, MatchPlayer>();
         private bool endOfMatch;
 

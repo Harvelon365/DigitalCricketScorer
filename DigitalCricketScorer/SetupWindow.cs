@@ -18,7 +18,7 @@ namespace DigitalCricketScorer
     /// </summary>
     public partial class SetupWindow
     {
-        private DataTable teamData { get; set; }
+        private DataTable teamData;
 
         public SetupWindow()
         {

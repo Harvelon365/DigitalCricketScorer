@@ -159,9 +159,22 @@ namespace DigitalCricketScorer
         {
             SelectGridRow(facingBatsmenGrid, facingBatsmanStats.IndexOf(facingBatsmanStats.SingleOrDefault(x => x.player.Id == currentMatch.currentBatsmanId)), 0);
             SelectGridRow(batsmanDataGrid, batsmanStats.IndexOf(batsmanStats.SingleOrDefault(x => x.player.Id == currentMatch.currentBatsmanId)), 0);
+
+            for (int i = 0; i < batsmanStats.Count; i++)
+            {
+                if (batsmanStats[i].player.isOut)
+                {
+                    SelectGridRow(batsmanDataGrid, i, 1);
+                }
+            }
             
-            SelectGridRow(batsmanDataGrid, batsmanStats.IndexOf(batsmanStats.SingleOrDefault(x => x.player.isOut)), 1);
-            SelectGridRow(bowlerDataGrid, bowlerStats.IndexOf(bowlerStats.SingleOrDefault(x => x.player.isOut)), 1);
+            for (int i = 0; i < bowlerStats.Count; i++)
+            {
+                if (bowlerStats[i].player.isOut)
+                {
+                    SelectGridRow(bowlerDataGrid, i, 1);
+                }
+            }
             
             SelectGridRow(facingBowlerGrid, facingBowlerStats.IndexOf(facingBowlerStats.SingleOrDefault(x => x.player.Id == currentMatch.currentBowlerId)), 0);
             SelectGridRow(bowlerDataGrid, bowlerStats.IndexOf(facingBowlerStats.SingleOrDefault(x => x.player.Id == currentMatch.currentBowlerId)), 0);
@@ -442,7 +455,7 @@ namespace DigitalCricketScorer
                 {
                     BatsmanStats bat = GetCurrentBatsman();
                     bat.runsScored -= customRunSelectWindow.amountOfRuns;
-                    if (currentMatch.homeCurrentlyBatting) currentMatch.homeMatchTeam.extras.bye += customRunSelectWindow.amountOfRuns;
+                    if (currentMatch.homeCurrentlyBatting) currentMatch.homeMatchTeam.extras.legBye += customRunSelectWindow.amountOfRuns;
                     else currentMatch.awayMatchTeam.extras.legBye += customRunSelectWindow.amountOfRuns;
                     currentMatch.ballString += "LB/";
                     NewRun(customRunSelectWindow.amountOfRuns);

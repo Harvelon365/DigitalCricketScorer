@@ -45,6 +45,7 @@ namespace DigitalCricketScorer
             else
             {
                 MessageBox.Show("Please enter a positive integer!", "Run Count", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                return;
             }
         }
     }
